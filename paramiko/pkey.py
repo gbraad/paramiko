@@ -25,7 +25,7 @@ from binascii import hexlify, unhexlify
 import os
 
 from Crypto.Hash import MD5
-from Crypto.Cipher import DES3
+from Crypto.Cipher import DES3, AES
 
 from paramiko.common import *
 from paramiko import util
@@ -40,7 +40,8 @@ class PKey (object):
 
     # known encryption types for private key files:
     _CIPHER_TABLE = {
-        'DES-EDE3-CBC': { 'cipher': DES3, 'keysize': 24, 'blocksize': 8, 'mode': DES3.MODE_CBC }
+        'DES-EDE3-CBC': { 'cipher': DES3, 'keysize': 24, 'blocksize': 8, 'mode': DES3.MODE_CBC },
+        'AES-128-CBC': { 'cipher': AES, 'keysize': 16, 'blocksize': 16, 'mode': AES.MODE_CBC }
     }
 
 
